@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html><head><title>Discriminator Files for downloading are here.</title>
+   
+   <meta name="GENERATOR" content="Mozilla/3.0Gold (X11; I; SunOS 5.3 sun4m) [Netscape]"></head>
+
+<body alink="#dc143c" bgcolor="#bbbbff" link="#550055" text="#000000" vlink="#990099">
+<h2> <font color="#ff0000"> 
+Sequential discrimination model: computer code
+</font></h2>
+
+<p>
+</p>
+<b>Purpose</b><br> 
+
+The codes simulate neurons involved in 
+a task requiring an initial stimulus (f1), 
+retention of the value of the inititial stimulus in memory 
+during a delay, followed by a second stimulus (f2). 
+The codes use integral feedback control to 
+produce neurons tuned to the difference of the 
+two stimuli. This allows a response to be made based 
+on which of the two stimuli was greater. 
+<br>
+
+The <i>xppaut</i> codes are based on firing rate models. 
+<br>
+The C++ code simulates a network of spiking neurons.
+
+
+<p>
+</p>
+<b>xppaut code</b>
+
+<li><a href="http://wanglab.ccs.brandeis.edu/people/miller/DISCRIM/2pop.ode"> 
+2-unit integral feedback control with a continuous integrator.</a>  </li>
+ 
+<li><a href="http://wanglab.ccs.brandeis.edu/people/miller/DISCRIM/2pope.ode"> 
+2-unit integral feedback control with a discrete integrator.</a>  </li>
+
+<p>
+</p>
+
+<b>C++ code</b>
+<p> </p>
+
+To run the code:
+<br>
+
+1) Download all files.
+<br>
+
+2) Compile eg:
+<br>
+
+g++  netinmain.cpp discrimnet.cpp structure.cpp -O3 -o dis
+<br>
+
+3) Run the executable followed by a number. Last 4 digits, N, 
+encode the stimulus 
+set where N=2(f1)+1,odd, if f2&gt;f1 and N= 2(f1), even, if f1&gt;f2. 
+The first digits form the randum number seed.
+<br>
+
+eg ./dis 150021 &gt; dis.out &amp;
+<br>
+
+will run the code with random number seed of 15, using f1=10Hz and 
+f2&gt;f1, in the present version f2=18Hz.
+
+Alternatively: 
+<br>
+
+./dis 3310044 &gt; dis.out &amp;
+<br>
+will run the code with random number seed of 331 and uses f1=22Hz and 
+f1&gt;f2 such that f2=14Hz in this version.
+
+<br>
+
+Adjustments: at present, the code is designed to run using the script, 
+with f2=f1+8Hz or f2=f1-8Hz. As of now, to change the frequency difference, 
+the code in netinmain.cpp should be altered, where the variable 
+istrength2 is set.
+
+<p></p>
+
+<li><a href="http://wanglab.ccs.brandeis.edu/people/miller/DISCRIM/script"> 
+script to run C++ code:</a> runs 14 jobs in parallel with Mosix  </li>
+
+<li>C++ code with comments on how to run it: 
+<a href="http://wanglab.ccs.brandeis.edu/people/miller/DISCRIM/discrimnet.cpp"> 
+discrimnet.cpp</a>  </li>
+
+<li>C++ startup code containing `main': <a href="http://wanglab.ccs.brandeis.edu/people/miller/DISCRIM/netinmain.cpp"> 
+netinmain.cpp</a>  </li>
+
+<li>C++ code with connectivity profile setup: <a href="http://wanglab.ccs.brandeis.edu/people/miller/DISCRIM/structure.cpp"> 
+structure.cpp</a>  </li>
+
+<li>Header file with most parameters and their purpose:<a href="http://wanglab.ccs.brandeis.edu/people/miller/DISCRIM/dnet.h"> 
+ dnet.h</a>  </li>
+
+<li>Random Number generator file: <a href="http://wanglab.ccs.brandeis.edu/people/miller/DISCRIM/MersenneTwister.h"> 
+MersenneTwister.h</a>  </li>
+
+<li>Input file with single neuron properties and simulation times: <a href="http://wanglab.ccs.brandeis.edu/people/miller/DISCRIM/discrimnet_in.dat"> 
+discrimnet_in.dat</a>  </li>
+
+<li>Input file with connection strengths: <a href="http://wanglab.ccs.brandeis.edu/people/miller/DISCRIM/connections_in.dat"> 
+connections_in.dat</a>  </li>
+
+
+
+<p>
+</p>
+<hr>Last modified August 23, 2005 <p></p>
+
+<address>Paul Miller, pmiller@brandeis.edu </address>
+<p>
+</p>
+<li><a href="http://wanglab.ccs.brandeis.edu/people/miller"> Back to Paul Miller's home page
+</a> </li>
+<p>
+</p>
+
+<a href="http://freelogs.com/stats/p/primon/" target="_top"><img alt="Free Hit Counter" src="discriminator_files/index" align="middle" border="0" hspace="4" vspace="2"></a><script src="discriminator_files/script"></script>
+<br><a style="font-size: 12px;" href="http://freelogs.com/create.php" target="_top"><font style="font-size: 12px;" color="#666666">Web Counter</font></a>
+
+</body></html>

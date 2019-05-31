@@ -1,0 +1,44 @@
+#!/bin/sh
+
+##
+## Script to start many programs with different arguments on
+## idefix:
+##
+## call it with: 
+## ./script    
+##
+rm -f dis
+g++ netinmain.cpp discrimnet.cpp structure.cpp -O3 -o dis
+count=10
+ranseed=10000
+while [ $count -lt 35 ]                                          
+ do
+     mkdir Cue_plus$count
+     rm -f Cue_plus$count/connections_in.dat
+     rm -f Cue_plus$count/dis
+     cp connections_in.dat dim3_in.dat dis Cue_plus$count
+     cd  Cue_plus$count
+     cuein=`expr $count + $count + $ranseed + 1`
+     echo $cuein
+     fastdecay ./dis $cuein > dis.out &
+     cd ..
+     count=`expr $count + 4`                 
+     ranseed=`expr $ranseed + 100000`
+ done
+
+count=10
+while [ $count -lt 35 ]                                          
+ do
+     mkdir Cue_minus$count
+     rm -f Cue_minus$count/connections_in.dat
+     rm -f Cue_minus$count/dis
+     cp connections_in.dat dim3_in.dat dis Cue_minus$count
+     cd  Cue_minus$count
+     cuein=`expr $count + $count + $ranseed`
+     fastdecay ./dis $cuein > dis.out &
+     cd ..
+     count=`expr $count + 4`                                     
+     ranseed=`expr $ranseed + 100000`
+ done
+
+exit 0
