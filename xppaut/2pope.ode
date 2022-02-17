@@ -59,7 +59,7 @@ aux di2=-r2+i2
 
 @total=12,bound=100,dt=.001,dtmin=1e-5,dtmax=10,atoler=1e-4
 @toler=1e-5,xhi=12,yhi=50,ylo=0 njmp=50,bell=0
-@bell=off,nout=50                                                             
+@bell=0,nout=50                                                             
 done
 
 
